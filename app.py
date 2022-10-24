@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session, Blueprint
+from flask import Flask, render_template, request, session, Blueprint, url_for
 import psycopg2
 from scenario_registration.blueprint_registration import registration
 
@@ -28,6 +28,12 @@ def index():
 @app.route("/sign_in")
 def sign_in():
     return render_template('sign_in.html')
+
+@app.route("/account")
+def account():
+    profile_icon = './static/svg/abstract-user-flat-4.svg'
+    return render_template('account.html', img=profile_icon)
+
 
 
 if __name__ == "__main__":
