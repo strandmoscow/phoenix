@@ -1,5 +1,6 @@
 body{
     background: aliceblue;
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 #side_nav{
     background: darkblue;
@@ -11,6 +12,17 @@ body{
      background: darkblue;
 }
 
+/*#account_first_row_final_column{*/
+/*    background: powderblue;*/
+/*}*/
+
+#account_first_row_first_col{
+    min-width: fit-content;
+}
+
+#contact_info{
+    background: lightgray;
+}
 
 .content{
     min-height: 100vh;

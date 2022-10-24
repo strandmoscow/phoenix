@@ -52,21 +52,41 @@
         </div>
 
     </nav>
-    <div class="container-fluid">
-        <div class="row">
-        <div class="col-2">
-            <div>
-                <img class="img-fluid" src="{{ img }}">
-
+    <div class="container-fluid flex-nowrap">
+        <div class="row d-flex flex-row flex-nowrap" id="account_first_row">
+        <div class="col-2 d-flex flex-column" id="account_first_row_first_col">
+            <div class="container-fluid px-0">
+                <img class="img" width="150" height="150" src="{{ img }}">
             </div>
         </div>
-        <div class="col-3">
-            <div class="py-4" id="fio">
-                <p style="color:darkblue; font-size: 150%;">Рябухина</p>
-                <p style="color:darkblue; font-size: 150%;">Анастасия</p>
-                <p style="color:darkblue; font-size: 150%;">Константиновна</p>
+        <div class="col-5 d-flex flex-column">
+            <div class="container-fluid py-4" id="fio">
+                <p style="color:darkblue;">Рябухина</p>
+                <p style="color:darkblue;">Анастасия</p>
+                <p style="color:darkblue;">Константиновна</p>
             </div>
         </div>
+        <div class="col-5 d-flex flex-column" id="account_first_row_final_column">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-end">
+                <p class="py-4" style="color:darkblue;">Тип аккаунта: <span class="text-dark rounded shadow px-2 me-2">Менеджер</span></p>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-outline-secondary text-dark" href="#" type="button">Редактировать</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row d-flex flex-row">
+            <div class="col-7 d-flex flex-column">
+                <p class="py-4 px-4" style="color:darkblue;">Дата рождения: <span class="text-dark rounded shadow px-2 me-2">27.04.2001</span></p>
+            </div>
+        </div>
+        <div class="row d-flex flex-row">
+            <div class="col-7 d-flex flex-column" id="contact_info">
+                <p class="py-0 px-4" style="color:darkblue;">Мобильный телефон: <span class="text-dark rounded shadow px-2 me-2">+79150720351</span></p>
+                <p class="py-0 px-4" style="color:darkblue;">Email: <span class="text-dark rounded shadow px-2 me-2">fenix2704@bk.ru</span></p>
+            </div>
         </div>
     </div>
     </div>
