@@ -1,14 +1,18 @@
 import os
-from flask import Flask, render_template, request
-#import psycopg2
+from flask import Flask, render_template, request, url_for
+
+# from flask_fontawesome import FontAwesome
+# import psycopg2
 
 app = Flask(__name__, instance_relative_config=True)
+# fa = FontAwesome(app)
 
 UPLOAD_FOLDER = os.path.join('statics')
 app.config.from_mapping(
     SECRET_KEY='dev',
     UPLOAD_FOLDER=UPLOAD_FOLDER
 )
+
 
 # try:
 #     conn = psycopg2.connect("dbname='Phoenix' user='net_user' host='80.211.80.219' password='net_user_password'")
@@ -30,9 +34,9 @@ def register():
         name = request.form.get('inputName')
         email = request.form.get('inputEmail')
         print(surname)
-        #cur.execute("""SELECT version()""")
-        #s = cur.fetchall()
-        print(s)
+        # cur.execute("""SELECT version()""")
+        # s = cur.fetchall()
+        # print(s)
         return render_template('register.html')
     else:
         print("!!!1")
@@ -42,6 +46,12 @@ def register():
 @app.route("/sign_in")
 def sign_in():
     return render_template('sign_in.html')
+
+
+@app.route("/account")
+def account():
+    profile_icon = './static/svg/abstract-user-flat-4.svg'
+    return render_template('account.html', img=profile_icon)
 
 
 if __name__ == "__main__":
