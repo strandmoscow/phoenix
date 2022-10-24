@@ -1,11 +1,11 @@
 import os
-from flask import Flask, render_template, request, url_for
-
-# from flask_fontawesome import FontAwesome
-# import psycopg2
+from flask import Flask, render_template, request, session, Blueprint
+import psycopg2
+from scenario_registration.blueprint_registration import registration
 
 app = Flask(__name__, instance_relative_config=True)
-# fa = FontAwesome(app)
+
+app.register_blueprint(registration, url_prefix='/registration')
 
 UPLOAD_FOLDER = os.path.join('statics')
 app.config.from_mapping(
@@ -13,12 +13,11 @@ app.config.from_mapping(
     UPLOAD_FOLDER=UPLOAD_FOLDER
 )
 
-
-# try:
-#     conn = psycopg2.connect("dbname='Phoenix' user='net_user' host='80.211.80.219' password='net_user_password'")
-#     cur = conn.cursor()
-# except:
-#     print("I am unable to connect to the database")
+try:
+    conn = psycopg2.connect("dbname='Phoenix' user='net_user' host='80.211.80.219' password='net_user_password'")
+    cur = conn.cursor()
+except:
+    print("I am unable to connect to the database")
 
 
 @app.route("/")
@@ -26,32 +25,9 @@ def index():
     return render_template('index.html')
 
 
-@app.route("/registration", methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        print("!!!")
-        surname = request.form.get('inputSurname')
-        name = request.form.get('inputName')
-        email = request.form.get('inputEmail')
-        print(surname)
-        # cur.execute("""SELECT version()""")
-        # s = cur.fetchall()
-        # print(s)
-        return render_template('register.html')
-    else:
-        print("!!!1")
-        return render_template('register.html')
-
-
 @app.route("/sign_in")
 def sign_in():
     return render_template('sign_in.html')
-
-
-@app.route("/account")
-def account():
-    profile_icon = './static/svg/abstract-user-flat-4.svg'
-    return render_template('account.html', img=profile_icon)
 
 
 if __name__ == "__main__":

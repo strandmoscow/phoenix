@@ -4,20 +4,20 @@
 
 
 <div class="position-absolute top-50 start-50 translate-middle">
-    <form>
+    <form method="post">
         <h1>Регистрация</h1>
         <h6>Мы никогда никому не передадим ваши данные.</h6>
         <div class="mb-2">
             <label for="inputSurname" class="form-label">Фамилия</label>
-            <input type="text" class="form-control" placeholder="Иванов" id="inputSurname">
+            <input type="text" name="inputSurname" class="form-control" placeholder="Иванов" id="inputSurname">
         </div>
         <div class="mb-2">
             <label for="inputName" class="form-label">Имя</label>
-            <input type="text" class="form-control" placeholder="Иван" id="inputName">
+            <input type="text" name="inputName" class="form-control" placeholder="Иван" id="inputName">
         </div>
         <div class="mb-2">
             <label for="inputEmail" class="form-label">Адрес электронной почты</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com"
+            <input type="email" name="inputEmail" class="form-control" id="inputEmail" placeholder="name@example.com"
                    aria-describedby="emailHelp">
         </div>
         <div class="mb-2 form-check">
