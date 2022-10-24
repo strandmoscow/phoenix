@@ -17,8 +17,8 @@ def step1():
 @registration.route("/step2", methods=['GET', 'POST'])
 def step2():
     if request.method == 'POST':
-        session['surname'] = request.form.get('inputSurname')
-        session['name'] = request.form.get('inputName')
+        session['dob'] = request.form.get('inputDOB')
+        session['phone'] = request.form.get('inputPhone')
         session['email'] = request.form.get('inputEmail')
     else:
         return render_template('registration2.html')
