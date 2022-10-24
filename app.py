@@ -2,10 +2,12 @@ import os
 from flask import Flask, render_template, request, session, Blueprint, url_for
 import psycopg2
 from scenario_registration.blueprint_registration import registration
+from scenario_registration.blueprint_account import account
 
 app = Flask(__name__, instance_relative_config=True)
 
 app.register_blueprint(registration, url_prefix='/registration')
+app.register_blueprint(account, url_prefix='/account')
 
 UPLOAD_FOLDER = os.path.join('statics')
 app.config.from_mapping(
@@ -29,10 +31,10 @@ def index():
 def sign_in():
     return render_template('sign_in.html')
 
-@app.route("/account")
-def account():
-    profile_icon = './static/svg/abstract-user-flat-4.svg'
-    return render_template('account.html', img=profile_icon)
+# @app.route("/account")
+# def account():
+#     profile_icon = './static/svg/abstract-user-flat-4.svg'
+#     return render_template('account.html', img=profile_icon)
 
 
 
