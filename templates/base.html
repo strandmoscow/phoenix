@@ -24,29 +24,30 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Личный кабинет</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link disabled" href="#">Рекомендуемые</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link disabled" href="#">Цена</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link disabled">Отключенная</a>-->
-<!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link disabled" href="#">Рекомендуемые</a>-->
+                <!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link disabled" href="#">Цена</a>-->
+                <!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link disabled">Отключенная</a>-->
+                <!--                </li>-->
             </ul>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a class="btn btn-outline-secondary" href="/sign_in" type="button">Войти</a>
-            <a class="btn btn-outline-primary" href="{{url_for('registration.step1')}}" type="button">Зарегестрироваться</a>
+            <a class="btn btn-outline-primary" href="{{url_for('registration.regi1')}}"
+               type="button">Зарегистрироваться</a>
         </div>
     </div>
 </nav>
 {% block body %}{% endblock %}
 
 <nav class="navbar fixed-bottom navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Footer</a>
-  </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Footer</a>
+    </div>
 </nav>
 </body>
 </html>

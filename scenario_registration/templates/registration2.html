@@ -3,25 +3,38 @@
 {% block body %}
 
 
-<div class="position-absolute top-50 start-50 translate-middle">
-    <form method="post">
-        <h1>Регистрация</h1>
-        <h6>Осталось еще немного</h6>
-        <div class="mb-2">
-            <label for="inputDOB" class="form-label">Дата рождения</label>
-            <input type="text" name="inputDOB" class="form-control" placeholder="01.08.2001" id="inputDOB">
+<div class="container-fluid position-absolute top-50 start-50 translate-middle">
+    <div class="row">
+        <div class="col-md-3">
         </div>
-        <div class="mb-2">
-            <label for="inputPhone" class="form-label">Номер телефона</label>
-            <input type="text" name="inputPhone" class="form-control" placeholder="+71234567890" id="inputPhone">
+        <div class="col-md-6">
+            <form method="post">
+                <h1>Регистрация</h1>
+                <h6>Осталось еще немного</h6>
+                <div class="mb-2">
+                    <label for="inputPassword" class="form-label">Придумайте пароль</label>
+                    <input type="password" name="inputPassword" class="form-control" placeholder="" id="inputPassword">
+                </div>
+                <div class="mb-2">
+                    <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
+                    <input type="password" name="confirmPassword" class="form-control" placeholder=""
+                           id="confirmPassword">
+                </div>
+                {% if password_dont_match %}
+                <h6 style="color:red;">
+                    Пароли не совпадают. Попробуйте еще раз
+                </h6>
+                {% endif %}
+                <div>
+                    <a href="{{url_for('registration.regi1')}}">Вернуться к заполнению данных регистрации</a>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
         </div>
-        <div class="mb-2">
-            <label for="inputEmail" class="form-label">Адрес электронной почты</label>
-            <input type="email" name="inputEmail" class="form-control" id="inputEmail" placeholder="name@example.com"
-                   aria-describedby="emailHelp">
+        <div class="col-md-3">
         </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-    </form>
+    </div>
 </div>
 
 {% endblock %}
