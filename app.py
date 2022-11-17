@@ -31,11 +31,15 @@ def index():
 def sign_in():
     return render_template('sign_in.html')
 
+@app.route("/students")
+def students():
+    return render_template('students.html')
+
+
 # @app.route("/account")
 # def account():
 #     profile_icon = './static/svg/abstract-user-flat-4.svg'
 #     return render_template('account.html', img=profile_icon)
-
 
 
 if __name__ == "__main__":
