@@ -19,16 +19,16 @@ CREATE TABLE Account (
     CONSTRAINT Account_pk PRIMARY KEY (Account_Id)
 );
 
--- Table: Adress
-CREATE TABLE Adress (
-    Adress_Id int  NOT NULL,
-    Adress_Country_Id int  NOT NULL,
-    Adress_Region_Id int  NOT NULL,
-    Adress_City_Id int  NOT NULL,
-    Adress_Street varchar(64)  NOT NULL,
-    Adress_House int  NOT NULL,
-    Adress_Building varchar(64)  NOT NULL,
-    CONSTRAINT Adress_pk PRIMARY KEY (Adress_Id)
+-- Table: Address
+CREATE TABLE Address (
+    Address_Id int  NOT NULL,
+    Address_Country_Id int  NOT NULL,
+    Address_Region_Id int  NOT NULL,
+    Address_City_Id int  NOT NULL,
+    Address_Street varchar(64)  NOT NULL,
+    Address_House int  NOT NULL,
+    Address_Building varchar(64)  NOT NULL,
+    CONSTRAINT Address_pk PRIMARY KEY (Address_Id)
 );
 
 -- Table: Attendance
@@ -43,7 +43,7 @@ CREATE TABLE Attendance (
 CREATE TABLE Building (
     Building_Id int  NOT NULL,
     Building_Name varchar(256)  NOT NULL,
-    Building_Adress_Id int  NOT NULL,
+    Building_Address_Id int  NOT NULL,
     Building_Club_Id int  NOT NULL,
     CONSTRAINT Building_pk PRIMARY KEY (Building_Id)
 );
@@ -62,7 +62,7 @@ CREATE TABLE Club (
     Club_Name varchar(256)  NOT NULL,
     Club_Phone varchar(256)  NOT NULL,
     Club_Email varchar(256)  NOT NULL,
-	Club_Adress_Id int  NOT NULL,
+	Club_Address_Id int  NOT NULL,
     Club_Federation_id int  NOT NULL,
     CONSTRAINT Club_pk PRIMARY KEY (Club_Id)
 );
@@ -218,50 +218,50 @@ ALTER TABLE Account ADD CONSTRAINT Account_Trainer
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Adress_City (table: Adress)
-ALTER TABLE Adress ADD CONSTRAINT Adress_City
-    FOREIGN KEY (Adress_City_Id)
-    REFERENCES City (City_Id)  
-    NOT DEFERRABLE 
+-- Reference: Address_City (table: Address)
+ALTER TABLE Address ADD CONSTRAINT Address_City
+    FOREIGN KEY (Address_City_Id)
+    REFERENCES City (City_Id)
+    NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Adress_Country (table: Adress)
-ALTER TABLE Adress ADD CONSTRAINT Adress_Country
-    FOREIGN KEY (Adress_Country_Id)
-    REFERENCES Country (Country_Id)  
-    NOT DEFERRABLE 
+-- Reference: Address_Country (table: Address)
+ALTER TABLE Address ADD CONSTRAINT Address_Country
+    FOREIGN KEY (Address_Country_Id)
+    REFERENCES Country (Country_Id)
+    NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Adress_Region (table: Adress)
-ALTER TABLE Adress ADD CONSTRAINT Adress_Region
-    FOREIGN KEY (Adress_Region_Id)
-    REFERENCES Region (Region_Id)  
-    NOT DEFERRABLE 
+-- Reference: Address_Region (table: Address)
+ALTER TABLE Address ADD CONSTRAINT Address_Region
+    FOREIGN KEY (Address_Region_Id)
+    REFERENCES Region (Region_Id)
+    NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
 
 -- Reference: Attendance_Lesson (table: Attendance)
 ALTER TABLE Attendance ADD CONSTRAINT Attendance_Lesson
     FOREIGN KEY (Attendance_Lesson_Id)
-    REFERENCES Lesson (Lesson_Id)  
-    NOT DEFERRABLE 
+    REFERENCES Lesson (Lesson_Id)
+    NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
 
 -- Reference: Attendance_Student (table: Attendance)
 ALTER TABLE Attendance ADD CONSTRAINT Attendance_Student
     FOREIGN KEY (Attendance_Student_Id)
-    REFERENCES Students (Student_Id)  
-    NOT DEFERRABLE 
+    REFERENCES Students (Student_Id)
+    NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Building_Adress (table: Building)
-ALTER TABLE Building ADD CONSTRAINT Building_Adress
-    FOREIGN KEY (Building_Adress_Id)
-    REFERENCES Adress (Adress_Id)  
+-- Reference: Building_Address (table: Building)
+ALTER TABLE Building ADD CONSTRAINT Building_Address
+    FOREIGN KEY (Building_Address_Id)
+    REFERENCES Address (Address_Id)
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -282,10 +282,10 @@ ALTER TABLE City ADD CONSTRAINT City_Region
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Club_Adress (table: Club)
-ALTER TABLE Club ADD CONSTRAINT Club_Adress
-    FOREIGN KEY (Club_Adress_Id)
-    REFERENCES Adress (Adress_Id)  
+-- Reference: Club_Address (table: Club)
+ALTER TABLE Club ADD CONSTRAINT Club_Address
+    FOREIGN KEY (Club_Address_Id)
+    REFERENCES Address (Address_Id)
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;

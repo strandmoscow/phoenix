@@ -16,7 +16,7 @@ app.config.from_mapping(
 )
 
 try:
-    conn = psycopg2.connect("dbname='Phoenix' user='net_user' host='80.211.80.219' password='net_user_password'")
+    conn = psycopg2.connect("dbname='Phoenix' user='postgres' host='70.34.250.137' password='p_admin_p'")
     cur = conn.cursor()
 except:
     print("I am unable to connect to the database")
